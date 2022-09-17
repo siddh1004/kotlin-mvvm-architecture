@@ -10,8 +10,8 @@ import com.example.nasaious.data.local.entity.PropertyWithFacilitiesEntity
 @Dao
 abstract class PropertyDao {
     @Transaction
-    @Query("SELECT * FROM $PROPERTY_TABLE_NAME")
-    abstract fun getProperties(): LiveData<PropertyWithFacilitiesEntity>
+    @Query("SELECT * FROM $PROPERTY_TABLE_NAME WHERE property_id = :propertyId")
+    abstract fun getProperty(propertyId: String): LiveData<PropertyWithFacilitiesEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun savePropertyInfo(propertyWithFacilitiesEntity: PropertyWithFacilitiesEntity) {

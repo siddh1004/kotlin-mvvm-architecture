@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.example.nasaious.data.local.dao.PropertyDao
 import com.example.nasaious.data.local.entity.FacilityEntity
 import com.example.nasaious.data.local.entity.PropertyEntity
@@ -14,6 +15,7 @@ import com.example.nasaious.data.local.entity.PropertyEntity
             FacilityEntity::class
         ], version = 2, exportSchema = false
 )
+@TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun propertyDao(): PropertyDao
 

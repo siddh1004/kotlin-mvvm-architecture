@@ -8,13 +8,15 @@ import com.example.nasaious.domain.model.Facility
 
 @Entity(tableName = Facility_TABLE_NAME)
 data class FacilityEntity(
-    @PrimaryKey
-    val facility_id: String,
-    val property_id: String,
-    val name: String,
+        @PrimaryKey
+        val facility_id: String,
+        val property_id: String,
+        val name: String,
+        val options: List<OptionEntity>?
 ) : DomainMapper<Facility> {
     override fun mapToDomainModel() = Facility(
-        facility_id,
-        name,
+            facility_id,
+            name,
+            options?.map { it.mapToDomainModel() }
     )
 }

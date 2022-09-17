@@ -29,10 +29,10 @@ class PropertyRepositoryImpl @Inject constructor(
             }
 
             override fun loadFromDb(): LiveData<Property> {
-                return Transformations.map(propertyDao.getProperties()) { properties ->
+                return Transformations.map(propertyDao.getProperty(propertyId)) { property ->
                     Property(
                             propertyId = propertyId,
-                            facilities = properties.facilities.map { it.mapToDomainModel() },
+                            facilities = property?.facilities?.map { it.mapToDomainModel() },
                             listOf()
                     )
                 }
