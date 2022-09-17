@@ -10,7 +10,7 @@ data class FacilityResponse(
 ) : RoomMapper<FacilityEntity> {
     override fun mapToRoomEntity() = FacilityEntity(
         facility_id,
-        "1",
+        "iranjith4",
         name,
     )
 }

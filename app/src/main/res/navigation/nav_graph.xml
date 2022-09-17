@@ -6,6 +6,6 @@
 
     <fragment
         android:id="@+id/image_list_fragment"
-        android:name="com.example.nasaious.screen.imageList.ImageListFragment"
-        android:label="ImageListFragment" />
+        android:name="com.example.nasaious.screen.imageList.PropertyFragment"
+        android:label="PropertyFragment" />
 </navigation>

@@ -4,21 +4,20 @@ import android.os.Bundle
 import android.view.View
 import com.example.nasaious.R
 import com.example.nasaious.base.FragmentBase
-import com.example.nasaious.databinding.FragmentImageListBinding
-import com.example.nasaious.domain.model.Image
+import com.example.nasaious.databinding.FragmentPropertyBinding
 import com.example.nasaious.screen.FacilityAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class ImageListFragment : FragmentBase(R.layout.fragment_image_list) {
+class PropertyFragment : FragmentBase(R.layout.fragment_property) {
 
     @Inject
     lateinit var viewModel: PropertyViewModel
 
     private lateinit var facilityAdapter: FacilityAdapter
 
-    private var _binding: FragmentImageListBinding? = null
+    private var _binding: FragmentPropertyBinding? = null
     private val binding get() = requireNotNull(_binding)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -26,7 +25,7 @@ class ImageListFragment : FragmentBase(R.layout.fragment_image_list) {
         loadData()
         setBindings(view)
         setAdapter()
-//        setObservers()
+        setObservers()
     }
 
     private fun loadData() {
@@ -34,8 +33,9 @@ class ImageListFragment : FragmentBase(R.layout.fragment_image_list) {
     }
 
     private fun setBindings(view: View) {
-        _binding = FragmentImageListBinding.bind(view)
-//        binding.property = viewModel.property
+        _binding = FragmentPropertyBinding.bind(view)
+        binding.property = viewModel.property
+        binding.lifecycleOwner = viewLifecycleOwner
     }
 
     private fun setAdapter() {
@@ -43,22 +43,10 @@ class ImageListFragment : FragmentBase(R.layout.fragment_image_list) {
         binding.facilitiesRecyclerView.adapter = facilityAdapter
     }
 
-//    private fun setObservers() {
-//        viewModel.viewState.observe { viewState ->
-//            binding.progress.isVisible = viewState is Loading
-//            when (viewState) {
-//                is Success -> {
-//                    val test = viewState.data
-//                    val test2 = test
-////                    optionAdapter.submitList(viewState.data)
-//                }
-//                else -> {
-//                }
-//            }
-//        }
-//    }
-
-    private fun onImageClick(image: Image) {
+    private fun setObservers() {
+        viewModel.property.observe {
+            facilityAdapter.submitList(it.data?.facilities)
+        }
     }
 
     override fun onDestroy() {

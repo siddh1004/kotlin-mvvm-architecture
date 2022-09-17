@@ -8,7 +8,7 @@ data class PropertyResponse(
     val facilities: List<FacilityResponse>?,
 ) : RoomMapper<PropertyWithFacilitiesEntity> {
     override fun mapToRoomEntity() = PropertyWithFacilitiesEntity(
-        property = PropertyEntity("1"),
+        property = PropertyEntity("iranjith4"),
         facilities?.map { it.mapToRoomEntity() } ?: listOf(),
     )
 }

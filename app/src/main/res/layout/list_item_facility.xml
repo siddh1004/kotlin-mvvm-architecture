@@ -15,11 +15,22 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:id="@+id/facilityNameTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@{facility.name}"
             app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/facilitiesOptionsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/facilityNameTextView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

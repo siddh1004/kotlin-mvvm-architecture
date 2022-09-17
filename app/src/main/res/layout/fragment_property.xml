@@ -4,18 +4,21 @@
 
     <data>
 
-<!--         <import type="androidx.lifecycle.LiveData" /> -->
+        <import type="androidx.lifecycle.LiveData" />
 
-<!--         <import type="java.util.List" /> -->
+        <import type="com.example.nasaious.domain.model.Resource" />
 
-<!--         <import type="com.example.nasaious.domain.model.Resource" /> -->
+        <import type="com.example.nasaious.domain.extensions.ResourceExtensionKt" />
 
-<!--         <import type="com.example.nasaious.domain.model.Property" /> -->
+        <import type="com.example.nasaious.domain.model.Property" />
 
-<!--         <variable -->
-<!--             name="property" -->
-<!--             type="LiveData&lt;Resource&lt;List&lt;Property>>>" /> -->
+        <variable
+            name="property"
+            type="LiveData&lt;Resource&lt;Property>>" />
 
+        <variable
+            name="retryCallback"
+            type="com.example.nasaious.utils.RetryCallback" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -38,7 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="@string/app_name"
+                android:text="@{property.data.propertyId}"
                 android:textColor="@color/white"
                 android:textSize="@dimen/screen_header_text_size"
                 android:textStyle="bold" />

@@ -2,4 +2,6 @@
     <string name="app_name">Nasaious</string>
     <string name="title_item_detail">Item Detail</string>
     <string name="retry">Retry</string>
+    <string name="zero_state_title">No Data</string>
+    <string name="zero_state_description">No data found</string>
 </resources>
