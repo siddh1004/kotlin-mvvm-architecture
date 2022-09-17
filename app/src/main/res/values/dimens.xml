@@ -10,9 +10,10 @@
     <dimen name="image_margin">12dp</dimen>
     <dimen name="image_margin_half">6dp</dimen>
     <dimen name="standard_margin">20dp</dimen>
-    <dimen name="standard_margin_half">6dp</dimen>
+    <dimen name="standard_margin_half">10dp</dimen>
 
     <dimen name="screen_header_text_size">20sp</dimen>
+    <dimen name="text_size_option_header">18sp</dimen>
     <dimen name="text_size_default">16sp</dimen>
     <dimen name="text_size_small">14sp</dimen>
 

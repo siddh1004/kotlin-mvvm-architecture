@@ -11,7 +11,7 @@
     <color name="button_primary">#FF3700B3</color>
     <color name="button_selected">#BF253746</color>
 
-    <color name="primary">#DD2859</color>
+    <color name="primary">#000000</color>
     <color name="text_default">#000000</color>
     <color name="text_default_night">#A19B9B</color>
     <color name="text_light">#80000000</color>

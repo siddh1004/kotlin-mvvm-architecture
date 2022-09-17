@@ -10,40 +10,39 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.example.nasaious.R
 
-@BindingAdapter(value = ["imageUrl", "placeholder", "size"], requireAll = false)
-fun loadImageUrl(
-    imageView: ImageView,
-    imageUrl: String?,
-    placeholder: Drawable?,
-    size: Float
+@BindingAdapter(value = ["optionIcon"], requireAll = false)
+fun setOptionIcon(
+        imageView: ImageView,
+        optionIcon: String?,
 ) {
-    try {
-        if (imageUrl != null) {
-            loadUrl(imageView, imageUrl, placeholder, size.toInt())
-        } else {
-            imageView.setImageDrawable(
-                placeholder ?: ColorDrawable(Color.GRAY)
-            )
-        }
-    } catch (ex: Exception) {
-        imageView.setImageDrawable(imageView.resources.getDrawable(R.drawable.ic_broken_image))
+    val icon = when (optionIcon) {
+        "1" -> R.mipmap.apartment
+        "2" -> R.mipmap.condo
+        "3" -> R.mipmap.boat
+        "4" -> R.mipmap.land
+        "5" -> R.mipmap.rooms
+        "6" -> R.mipmap.no_room
+        "7" -> R.mipmap.swimming
+        "8" -> R.mipmap.garden
+        else -> R.mipmap.garage
     }
+    imageView.setImageResource(icon)
 }
 
 private fun loadUrl(
-    imageView: ImageView,
-    imageUrl: String?,
-    placeholder: Drawable?,
-    size: Int
+        imageView: ImageView,
+        imageUrl: String?,
+        placeholder: Drawable?,
+        size: Int
 ) {
     Glide
-        .with(imageView.context)
-        .asBitmap()
-        .load(imageUrl)
-        .dontAnimate()
-        .diskCacheStrategy(DiskCacheStrategy.ALL)
-        .error(R.drawable.ic_broken_image)
-        .placeholder(placeholder ?: ColorDrawable(Color.GRAY))
-        .override(size)
-        .into(imageView)
+            .with(imageView.context)
+            .asBitmap()
+            .load(imageUrl)
+            .dontAnimate()
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .error(R.drawable.ic_broken_image)
+            .placeholder(placeholder ?: ColorDrawable(Color.GRAY))
+            .override(size)
+            .into(imageView)
 }

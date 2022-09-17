@@ -39,7 +39,7 @@ class PropertyFragment : FragmentBase(R.layout.fragment_property) {
     }
 
     private fun setAdapter() {
-        facilityAdapter = FacilityAdapter()
+        facilityAdapter = FacilityAdapter(requireContext())
         binding.facilitiesRecyclerView.adapter = facilityAdapter
     }
 
