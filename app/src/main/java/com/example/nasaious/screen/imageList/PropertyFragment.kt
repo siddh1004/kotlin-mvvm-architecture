@@ -26,6 +26,7 @@ class PropertyFragment : FragmentBase(R.layout.fragment_property) {
         setBindings(view)
         setAdapter()
         setObservers()
+        setEventHandlers()
     }
 
     private fun loadData() {
@@ -46,6 +47,13 @@ class PropertyFragment : FragmentBase(R.layout.fragment_property) {
     private fun setObservers() {
         viewModel.property.observe {
             facilityAdapter.submitList(it.data?.facilities)
+        }
+    }
+
+    private fun setEventHandlers() {
+        binding.swipeFacilities.setOnRefreshListener {
+            viewModel.retry()
+            binding.swipeFacilities.isRefreshing = false
         }
     }
 

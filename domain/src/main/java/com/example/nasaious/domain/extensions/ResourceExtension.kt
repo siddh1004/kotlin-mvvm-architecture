@@ -10,11 +10,11 @@ fun Resource<Property>?.showLoader(): Boolean {
     } else false
 }
 
-fun <T> Resource<T>?.showZeroState(): Boolean {
+fun Resource<Property>?.showZeroState(): Boolean {
     return when {
         this == null -> false
         status == Status.LOADING -> false
-        data is List<*> -> data.isEmpty()
+        data is Property -> data.facilities.isNullOrEmpty()
         else -> data == null
     }
 }
