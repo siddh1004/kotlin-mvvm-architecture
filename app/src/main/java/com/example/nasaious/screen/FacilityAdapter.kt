@@ -12,7 +12,7 @@ import com.example.nasaious.domain.model.Facility
 import com.example.nasaious.screen.imageList.OptionAdapter
 
 class FacilityAdapter(
-        val context: Context
+        private val context: Context
 ) : ListAdapter<Facility, FacilityAdapter.ImageViewHolder>(FacilityDiffCallback) {
 
     class ImageViewHolder(

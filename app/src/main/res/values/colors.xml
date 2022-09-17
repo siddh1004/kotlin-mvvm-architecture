@@ -15,4 +15,9 @@
     <color name="text_default">#000000</color>
     <color name="text_default_night">#A19B9B</color>
     <color name="text_light">#80000000</color>
+
+    //option
+    <color name="option_default">#EBEBEB</color>
+    <color name="option_selected">#000000</color>
+    <color name="option_disabled">#10000000</color>
 </resources>
