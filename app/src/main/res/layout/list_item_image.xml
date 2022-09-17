@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="option"
+            type="com.example.nasaious.domain.model.Option" />
+
+    </data>
+
+
+    <TextView
+        android:id="@+id/my_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/image_margin_half"
+        android:adjustViewBounds="true"
+        android:background="?android:selectableItemBackground"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:onClick="@{clickListener}"
+        android:text="@{option.name}" />
+</layout>

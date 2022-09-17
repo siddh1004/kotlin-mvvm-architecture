@@ -1,0 +1,53 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdk Integer.parseInt(ANDROID_COMPILE_SDK_VERSION)
+
+    defaultConfig {
+        minSdk Integer.parseInt(MIN_SDK_VERSION)
+        targetSdk Integer.parseInt(TARGET_SDK_VERSION)
+        versionCode Integer.parseInt(VERSION_CODE)
+        versionName VERSION_NAME
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+}
+
+dependencies {
+    def dependencies = rootProject.ext.dataDependencies
+    implementation project(":domain")
+
+    api dependencies.retrofit
+    api dependencies.gsonConverter
+    api dependencies.okHttpLogginginterceptor
+
+    implementation dependencies.room
+    api dependencies.roomRuntime
+    kapt dependencies.roomCompiler
+
+    implementation dependencies.hilt
+    implementation dependencies.moshi
+    implementation dependencies.gson
+    kapt dependencies.hiltCompiler
+    kapt dependencies.moshiKotlin
+}
+
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == 'org.jetbrains.kotlin') {
+            details.useVersion kotlinVersion
+        }
+    }
+}

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.text.TextUtils" />
+
+        <variable
+            name="nasaImage"
+            type="com.example.nasaious.domain.model.Image" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/standard_margin">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/my_image"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:background="@color/black"
+                android:scaleType="fitCenter"
+                android:transitionName="nasa_image"
+                app:imageUrl="@{nasaImage.url}"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:text="@{nasaImage.title}"
+                android:textSize="@dimen/screen_header_text_size"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/my_image" />
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:text="@{nasaImage.description}"
+                android:textColor="@color/text_light"
+                android:textSize="@dimen/text_size_default"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:text="@{`\u00A9` + ` ` +nasaImage.copyright}"
+                android:textAlignment="textEnd"
+                android:textColor="@color/text_light"
+                app:isVisible="@{!TextUtils.isEmpty(nasaImage.copyright)}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/description" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</layout>

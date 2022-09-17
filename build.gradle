@@ -1,0 +1,28 @@
+apply from: 'dependencies.gradle'
+
+buildscript {
+
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+
+    ext {
+        gradleBuildToolsVersion = BUILD_GRADLE_TOOLS_VERSION
+        kotlinVersion = KOTLIN_VERSION
+        hiltVersion = HILT_VERSION
+        navigationVersion = NAVIGATION_VERSION
+    }
+
+    dependencies {
+        classpath "com.android.tools.build:gradle:$gradleBuildToolsVersion"
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.21'
+        classpath "com.google.dagger:hilt-android-gradle-plugin:$hiltVersion"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion"
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
