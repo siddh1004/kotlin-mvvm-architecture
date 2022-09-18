@@ -9,26 +9,37 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nasaious.databinding.ListItemFacilityBinding
 import com.example.nasaious.domain.model.Facility
+import com.example.nasaious.domain.model.Option
 import com.example.nasaious.screen.imageList.OptionAdapter
 
 class FacilityAdapter(
-        private val context: Context
+        private val context: Context,
+        private val onClick: () -> Unit
 ) : ListAdapter<Facility, FacilityAdapter.ImageViewHolder>(FacilityDiffCallback) {
 
     class ImageViewHolder(
-            private val binding: ListItemFacilityBinding
+            private val binding: ListItemFacilityBinding,
+            private val onClick: () -> Unit
     ) :
             RecyclerView.ViewHolder(binding.root) {
 
+        private lateinit var facility: Facility
+
         fun bind(item: Facility, context: Context) {
-            val adapter = OptionAdapter { }
+            facility = item
             binding.apply {
                 facility = item
+                val adapter = OptionAdapter(::onOptionClick)
                 facilitiesOptionsRecyclerView.adapter = adapter
                 adapter.submitList(item.options)
                 facilitiesOptionsRecyclerView.layoutManager = GridLayoutManager(context, 2)
                 executePendingBindings()
             }
+        }
+
+        private fun onOptionClick(option: Option) {
+            facility.options?.map { it.isSelected = it.id == option.id }
+            onClick.invoke()
         }
     }
 
@@ -38,7 +49,8 @@ class FacilityAdapter(
                         LayoutInflater.from(parent.context),
                         parent,
                         false
-                )
+                ),
+                onClick
         )
     }
 

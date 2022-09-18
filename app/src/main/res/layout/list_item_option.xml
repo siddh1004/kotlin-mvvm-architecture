@@ -18,6 +18,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/standard_margin_half"
+        android:alpha="@{option.disabled ? 0.5f : 1.0f}"
+        android:clickable="@{!option.disabled}"
         android:onClick="@{clickListener}"
         android:orientation="vertical"
         android:padding="@dimen/standard_margin"

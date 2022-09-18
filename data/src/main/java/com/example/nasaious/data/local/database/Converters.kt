@@ -1,6 +1,7 @@
 package com.example.nasaious.data.local.database
 
 import androidx.room.TypeConverter
+import com.example.nasaious.data.local.entity.ExclusionEntity
 import com.example.nasaious.data.local.entity.OptionEntity
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken

@@ -33,7 +33,6 @@ class PropertyRepositoryImpl @Inject constructor(
                     Property(
                             propertyId = propertyId,
                             facilities = property?.facilities?.map { it.mapToDomainModel() },
-                            listOf()
                     )
                 }
             }

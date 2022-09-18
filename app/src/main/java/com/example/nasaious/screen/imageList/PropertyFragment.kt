@@ -5,6 +5,7 @@ import android.view.View
 import com.example.nasaious.R
 import com.example.nasaious.base.FragmentBase
 import com.example.nasaious.databinding.FragmentPropertyBinding
+import com.example.nasaious.domain.model.Facility
 import com.example.nasaious.screen.FacilityAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -40,7 +41,7 @@ class PropertyFragment : FragmentBase(R.layout.fragment_property) {
     }
 
     private fun setAdapter() {
-        facilityAdapter = FacilityAdapter(requireContext())
+        facilityAdapter = FacilityAdapter(requireContext(), ::onFacilityOptionClick)
         binding.facilitiesRecyclerView.adapter = facilityAdapter
     }
 
@@ -60,5 +61,10 @@ class PropertyFragment : FragmentBase(R.layout.fragment_property) {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+    private fun onFacilityOptionClick() {
+        viewModel.updateExclusionOnClick()
+        facilityAdapter.notifyDataSetChanged()
     }
 }

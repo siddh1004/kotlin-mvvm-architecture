@@ -8,26 +8,22 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.nasaious.databinding.ListItemOptionBinding
 import com.example.nasaious.domain.model.Option
 
-private var selectedPosition = -1
-
-class OptionAdapter(private val onClick: (Option) -> Unit) :
+class OptionAdapter(
+        private val onClick: ((Option) -> Unit)
+) :
         ListAdapter<Option, OptionAdapter.ImageViewHolder>(OptionDiffCallback) {
 
     class ImageViewHolder(
             private val binding: ListItemOptionBinding,
-            private val onClick: (Option) -> Unit
     ) :
             RecyclerView.ViewHolder(binding.root) {
-        init {
+
+        fun bind(item: Option, onClick: (Option) -> Unit) {
             binding.setClickListener {
-                selectedPosition = adapterPosition
                 binding.option?.let { option ->
                     onClick.invoke(option)
                 }
             }
-        }
-
-        fun bind(item: Option) {
             binding.apply {
                 option = item
                 executePendingBindings()
@@ -42,16 +38,12 @@ class OptionAdapter(private val onClick: (Option) -> Unit) :
                         parent,
                         false
                 )
-        ) {
-            notifyDataSetChanged()
-            onClick
-        }
+        )
     }
 
     override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {
         val image = getItem(position)
-        image.isSelected = selectedPosition == position
-        holder.bind(image)
+        holder.bind(image, onClick)
     }
 }
 

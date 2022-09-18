@@ -4,11 +4,12 @@ import com.example.nasaious.data.local.entity.OptionEntity
 import com.example.nasaious.data.remote.util.RoomMapper
 
 data class OptionResponse(
-    val name: String,
-    val icon: String,
-    val id: String
+        val name: String,
+        val icon: String,
+        val id: String,
+        var exclusion: ExclusionResponse?
 ) : RoomMapper<OptionEntity> {
     override fun mapToRoomEntity() = OptionEntity(
-        name, icon, id
+            name, icon, id, exclusion?.mapToRoomEntity()
     )
 }

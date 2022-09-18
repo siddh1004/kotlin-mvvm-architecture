@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Projects/kotlin-mvvm-architecture/app/src/main/res/drawable/button_selector.xml" value="0.1935" />
+        <entry key="..\:/Projects/kotlin-mvvm-architecture/app/src/main/res/drawable/option_shape_disabled.xml" value="0.1935" />
+        <entry key="..\:/Projects/kotlin-mvvm-architecture/app/src/main/res/drawable/option_shape_selected.xml" value="0.1935" />
         <entry key="..\:/Projects/kotlin-mvvm-architecture/app/src/main/res/drawable/progress.xml" value="0.2985" />
         <entry key="..\:/Projects/kotlin-mvvm-architecture/app/src/main/res/layout/custom_view_zero_state.xml" value="0.20380434782608695" />
         <entry key="..\:/Projects/kotlin-mvvm-architecture/app/src/main/res/layout/fragment_image_detail.xml" value="0.14722222222222223" />
