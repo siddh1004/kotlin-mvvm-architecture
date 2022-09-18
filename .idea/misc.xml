@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Projects/kotlin-mvvm-architecture/app/src/main/res/drawable/button_selector.xml" value="0.1935" />
+        <entry key="..\:/Projects/kotlin-mvvm-architecture/app/src/main/res/drawable/ic_radius_logo.xml" value="0.1935" />
         <entry key="..\:/Projects/kotlin-mvvm-architecture/app/src/main/res/drawable/option_shape_disabled.xml" value="0.1935" />
         <entry key="..\:/Projects/kotlin-mvvm-architecture/app/src/main/res/drawable/option_shape_selected.xml" value="0.1935" />
         <entry key="..\:/Projects/kotlin-mvvm-architecture/app/src/main/res/drawable/progress.xml" value="0.2985" />
