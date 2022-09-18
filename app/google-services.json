@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "424160674744",
+    "project_id": "radius-5cbb0",
+    "storage_bucket": "radius-5cbb0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:424160674744:android:e6219489f259a673fd854d",
+        "android_client_info": {
+          "package_name": "com.example.nasaious"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "424160674744-614muo3eqqjajde7u5c407s216tscdbn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2IWvghkk97PSgUPqQ0PCigPD230C37Og"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "424160674744-614muo3eqqjajde7u5c407s216tscdbn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
