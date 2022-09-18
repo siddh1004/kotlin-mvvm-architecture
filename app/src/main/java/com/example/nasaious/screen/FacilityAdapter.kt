@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.nasaious.databinding.ListItemFacilityBinding
 import com.example.nasaious.domain.model.Facility
 import com.example.nasaious.domain.model.Option
-import com.example.nasaious.screen.imageList.OptionAdapter
 
 class FacilityAdapter(
         private val context: Context,

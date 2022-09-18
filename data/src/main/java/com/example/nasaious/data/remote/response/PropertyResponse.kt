@@ -3,6 +3,7 @@ package com.example.nasaious.data.remote.response
 import com.example.nasaious.data.local.entity.PropertyEntity
 import com.example.nasaious.data.local.entity.PropertyWithFacilitiesEntity
 import com.example.nasaious.data.remote.util.RoomMapper
+import java.util.*
 
 data class PropertyResponse(
         val facilities: List<FacilityResponse>?,
@@ -11,6 +12,7 @@ data class PropertyResponse(
     override fun mapToRoomEntity() = PropertyWithFacilitiesEntity(
             property = PropertyEntity(
                     "iranjith4",
+                    lastFetchTime = Date()
             ),
             facilities?.map {
                 addExclusion(it, exclusions)

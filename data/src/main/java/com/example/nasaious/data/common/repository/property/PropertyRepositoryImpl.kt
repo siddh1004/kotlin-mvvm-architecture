@@ -10,6 +10,7 @@ import com.example.nasaious.data.remote.response.PropertyResponse
 import com.example.nasaious.domain.model.*
 import com.example.nasaious.domain.repository.property.PropertyRepository
 import com.example.nasaious.domain.util.AppExecutors
+import java.util.*
 import javax.inject.Inject
 
 class PropertyRepositoryImpl @Inject constructor(
@@ -25,7 +26,14 @@ class PropertyRepositoryImpl @Inject constructor(
             }
 
             override fun shouldFetch(data: Property?): Boolean {
-                return true
+                val lastFetched = data?.lastFetchTime?.time
+                return if (lastFetched != null) {
+                    val difference: Long = kotlin.math.abs(lastFetched - Date().time)
+                    val differenceHours = difference / (60 * 60 * 1000)
+                    differenceHours > 24
+                } else {
+                    true
+                }
             }
 
             override fun loadFromDb(): LiveData<Property> {
@@ -33,6 +41,7 @@ class PropertyRepositoryImpl @Inject constructor(
                     Property(
                             propertyId = propertyId,
                             facilities = property?.facilities?.map { it.mapToDomainModel() },
+                            lastFetchTime = property?.property?.lastFetchTime
                     )
                 }
             }

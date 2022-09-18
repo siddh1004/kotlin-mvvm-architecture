@@ -1,4 +1,4 @@
-package com.example.nasaious.screen.imageList
+package com.example.nasaious.screen
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

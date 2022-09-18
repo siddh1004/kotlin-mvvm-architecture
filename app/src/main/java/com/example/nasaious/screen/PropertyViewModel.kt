@@ -1,4 +1,4 @@
-package com.example.nasaious.screen.imageList
+package com.example.nasaious.screen
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

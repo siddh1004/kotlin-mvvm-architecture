@@ -1,12 +1,10 @@
-package com.example.nasaious.screen.imageList
+package com.example.nasaious.screen
 
 import android.os.Bundle
 import android.view.View
 import com.example.nasaious.R
 import com.example.nasaious.base.FragmentBase
 import com.example.nasaious.databinding.FragmentPropertyBinding
-import com.example.nasaious.domain.model.Facility
-import com.example.nasaious.screen.FacilityAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
