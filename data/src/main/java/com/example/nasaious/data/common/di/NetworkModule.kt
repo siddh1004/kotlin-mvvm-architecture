@@ -9,7 +9,7 @@ import com.example.nasaious.data.common.utils.ContextProvider
 import com.example.nasaious.data.common.utils.CoroutineContextProvider
 import com.example.nasaious.data.remote.BASE_URL
 import com.example.nasaious.data.remote.LiveDataCallAdapterFactory
-import com.example.nasaious.data.remote.api.PropertyApi
+import com.example.nasaious.data.remote.api.NewsApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,7 +19,6 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 @Module
@@ -59,8 +58,8 @@ class NetworkModule {
 
     @Singleton
     @Provides
-    fun provideTokenApi(@NonNull retrofit: Retrofit): PropertyApi {
-        return retrofit.create(PropertyApi::class.java)
+    fun provideTokenApi(@NonNull retrofit: Retrofit): NewsApi {
+        return retrofit.create(NewsApi::class.java)
     }
 
 

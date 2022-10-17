@@ -1,4 +1,4 @@
-package com.example.nasaious.data.common.repository.property
+package com.example.nasaious.data.common.repository.news
 
 import android.annotation.SuppressLint
 import androidx.annotation.MainThread

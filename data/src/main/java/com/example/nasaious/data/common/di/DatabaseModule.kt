@@ -1,7 +1,7 @@
 package com.example.nasaious.data.common.di
 
 import android.content.Context
-import com.example.nasaious.data.local.dao.PropertyDao
+import com.example.nasaious.data.local.dao.NewsDao
 import com.example.nasaious.data.local.database.AppDatabase
 import dagger.Module
 import dagger.Provides
@@ -20,7 +20,7 @@ class DatabaseModule {
     }
 
     @Provides
-    fun providePropertyDao(db: AppDatabase): PropertyDao {
-        return db.propertyDao()
+    fun provideNewsDao(db: AppDatabase): NewsDao {
+        return db.newsDao()
     }
 }

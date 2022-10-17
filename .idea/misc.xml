@@ -24,6 +24,10 @@
         <entry key="..\:/Projects/nasaious/src/android/app/src/main/res/layout/fragment_image_list.xml" value="0.36666666666666664" />
         <entry key="..\:/Projects/nasaious/src/android/app/src/main/res/layout/fragment_item_detail.xml" value="0.358695652173913" />
         <entry key="..\:/Projects/nasaious/src/android/app/src/main/res/layout/list_item_image.xml" value="0.36666666666666664" />
+        <entry key="app/src/main/res/layout/fragment_news_detail.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/fragment_news_list.xml" value="0.14583333333333334" />
+        <entry key="app/src/main/res/layout/fragment_property.xml" value="0.14583333333333334" />
+        <entry key="app/src/main/res/layout/list_item_image.xml" value="0.19610507246376813" />
       </map>
     </option>
   </component>

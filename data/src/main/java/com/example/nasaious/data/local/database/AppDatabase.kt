@@ -5,19 +5,17 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.example.nasaious.data.local.dao.PropertyDao
-import com.example.nasaious.data.local.entity.FacilityEntity
-import com.example.nasaious.data.local.entity.PropertyEntity
+import com.example.nasaious.data.local.dao.NewsDao
+import com.example.nasaious.data.local.entity.ArticleEntity
 
 @Database(
-        entities = [
-            PropertyEntity::class,
-            FacilityEntity::class
-        ], version = 2, exportSchema = false
+    entities = [
+        ArticleEntity::class
+    ], version = 2, exportSchema = false
 )
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun propertyDao(): PropertyDao
+    abstract fun newsDao(): NewsDao
 
     companion object {
 
@@ -32,9 +30,9 @@ abstract class AppDatabase : RoomDatabase() {
 
         private fun buildDatabase(context: Context): AppDatabase {
             return Room
-                    .databaseBuilder(context, AppDatabase::class.java, DATABASE_NAME)
-                    .fallbackToDestructiveMigration()
-                    .build()
+                .databaseBuilder(context, AppDatabase::class.java, DATABASE_NAME)
+                .fallbackToDestructiveMigration()
+                .build()
         }
     }
 }

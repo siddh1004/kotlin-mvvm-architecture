@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/image_list_fragment">
+    app:startDestination="@id/news_list_fragment">
 
     <fragment
-        android:id="@+id/image_list_fragment"
-        android:name="com.example.nasaious.screen.PropertyFragment"
-        android:label="PropertyFragment" />
+        android:id="@+id/news_list_fragment"
+        android:name="com.example.nasaious.screen.NewsListFragment"
+        android:label="ImageListFragment">
+        <action
+            android:id="@+id/show_news_detail"
+            app:destination="@id/news_detail_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/news_detail_fragment"
+        android:name="com.example.nasaious.screen.NewsDetailFragment"
+        android:label="news_detail"
+        tools:layout="@layout/fragment_news_detail">
+        <argument
+            android:name="title"
+            app:argType="string" />
+    </fragment>
 </navigation>
