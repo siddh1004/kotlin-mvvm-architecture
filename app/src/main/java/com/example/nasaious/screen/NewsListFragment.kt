@@ -47,7 +47,7 @@ class NewsListFragment : FragmentBase(R.layout.fragment_news_list) {
     }
 
     private fun setObservers() {
-        newsListViewModel.property.observe { resource ->
+        newsListViewModel.news.observe { resource ->
             binding.progress.isVisible = resource.status == Status.LOADING
             when (resource.status) {
                 Status.SUCCESS -> {

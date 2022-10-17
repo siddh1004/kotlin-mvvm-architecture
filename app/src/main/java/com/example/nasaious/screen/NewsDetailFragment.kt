@@ -2,13 +2,10 @@ package com.example.nasaious.screen
 
 import android.os.Bundle
 import android.view.View
-import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.nasaious.R
 import com.example.nasaious.base.FragmentBase
-import com.example.nasaious.base.Loading
-import com.example.nasaious.base.Success
 import com.example.nasaious.databinding.FragmentNewsDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -33,7 +30,7 @@ class NewsDetailFragment : FragmentBase(R.layout.fragment_news_detail) {
     }
 
     private fun loadData() {
-        newsViewModel.getNews(args.title)
+        newsViewModel.setTitle(args.title)
     }
 
     private fun setBindings(view: View) {
@@ -47,14 +44,8 @@ class NewsDetailFragment : FragmentBase(R.layout.fragment_news_detail) {
     }
 
     private fun setObservers() {
-        newsViewModel.viewState.observe { viewState ->
-            binding.progress.isVisible = viewState is Loading
-            when (viewState) {
-                is Success -> {
-                }
-                else -> {
-                }
-            }
+        newsViewModel.newsDetail.observe { data ->
+            binding.article = data
         }
     }
 

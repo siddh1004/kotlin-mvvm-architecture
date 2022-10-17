@@ -17,11 +17,23 @@ class NewsViewModel @Inject constructor(
     val country: LiveData<String>
         get() = _country
 
-    val property: LiveData<Resource<List<Article>>> = _country.switchMap { country ->
+    private val _title = MutableLiveData<String>()
+    val title: LiveData<String>
+        get() = _title
+
+    val news: LiveData<Resource<List<Article>>> = _country.switchMap { country ->
         if (country == null) {
             AbsentLiveData.create()
         } else {
             newsRepository.getNewsList(country)
+        }
+    }
+
+    val newsDetail: LiveData<Article> = _title.switchMap { title ->
+        if (title == null) {
+            AbsentLiveData.create()
+        } else {
+            newsRepository.getNews(title)
         }
     }
 
@@ -31,11 +43,15 @@ class NewsViewModel @Inject constructor(
         }
     }
 
+    fun setTitle(title: String) {
+        if (_title.value != title) {
+            _title.value = title
+        }
+    }
+
     fun retry() {
         _country.value?.let {
             _country.value = it
         }
     }
-
-    fun getNews(title: String) = newsRepository.getNews(title)
 }
