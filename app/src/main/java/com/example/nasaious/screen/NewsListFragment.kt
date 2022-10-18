@@ -3,7 +3,6 @@ package com.example.nasaious.screen
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.nasaious.R
 import com.example.nasaious.base.FragmentBase
 import com.example.nasaious.databinding.FragmentNewsListBinding
@@ -42,8 +41,6 @@ class NewsListFragment : FragmentBase(R.layout.fragment_news_list) {
     private fun setAdapter() {
         imageItemAdapter = ImageItemAdapter(::onNewsClick)
         binding.imageRecyclerView.adapter = imageItemAdapter
-        binding.imageRecyclerView.layoutManager =
-            StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
     }
 
     private fun setObservers() {
